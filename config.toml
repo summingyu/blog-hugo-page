@@ -1,96 +1,52 @@
-baseURL = "https://www.summingyu.org"
+baseURL = "http://summinglearn.org/"
+# [en, zh-cn, fr, ...] 设置默认的语言
+defaultContentLanguage = "zh-cn"
+# 网站语言, 仅在这里 CN 大写
 languageCode = "zh-CN"
-title = "余苏明的幻想乡"
-theme = "maupassant"
-googleAnalytics = ""  # UA-XXXXXXXX-X
-
-## 保持分类的原始名字（false会做转小写处理）
-preserveTaxonomyNames = true
-## 是否禁止URL Path转小写
-disablePathToLower = true
-
+# 是否包括中日韩文字
 hasCJKLanguage = true
-summaryLength = 140
+# 网站标题
+title = "SummingYu的幻想乡"
 
-disqusShortname = "yourdiscussshortname"  ## 是否开启disqus评论，不要和utteranc同时开启
-
-[author]
-  name = "SummingYu"
+# 更改使用 Hugo 构建网站时使用的默认主题
+theme = "DoIt"
 
 [params]
-  author = "SummingYu"
-  subtitle = "专注于python、Go语言(golang)、项目管理、DevOps、SRE"
-  keywords = "golang,go语言,go语言笔记,summingyu,博客,项目管理,python,DevOps,SRE"
-  description = "Talk is cheap. Show me the code"
-  busuanzi = true #启用不算子网页统计
-  googleAd = ""  #ca-pub-xxxxxxxxxxxxxx
-  localSearch = true # 启用本地搜索
-  beian = "粤ICP备XXXXXXX号-1"
-  fancybox = true
-
-  # 这里我存放在了主题的static文件夹里，根目录的似乎也可以
-  customCSS = ['douban.css', 'other.css']
-  # if ['custom.css'], load '/static/css/custom.css' file
-  customJS = ['douban.js']
-  # if ['custom.js'], load '/static/js/custom.js' file
-
-  # 全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能
-  toc = true  # 是否开启目录
-
-## 友情链接，可以多个
-
-[[params.links]]
-  title = "飞雪无情的博客"
-  name = "飞雪无情的博客"
-  url = "https://www.flysnow.org/"
-
-[[params.links]]
-  title = "Google SRE 实践"
-  name = "Google SRE 实践"
-  url = "https://sre.google/workbook/how-sre-relates/"
-
-## 侧边栏广告位
-## [[params.ads]]
-##  title = "【2019双12】ALL IN CLoud 低至1折"
-##  url = "https://www.aliyun.com/minisite/goods?userCode=jdg9oj97&share_source=copy_link"
-##  img = "https://img.alicdn.com/tfs/TB1_rYHo7P2gK0jSZPxXXacQpXa-690-388.jpg"
-
-## 配置 utteranc评论,教程参考 https://utteranc.es/
-[params.utteranc]
-  enable = true
-  repo = "your github repo" ##换成自己得
-  issueTerm = "pathname"
-  theme = "github-light"
-
-## 开启版权声明，协议名字和链接都可以换
-[params.cc]
-    name = "知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议"
-    link = "https://creativecommons.org/licenses/by-nc-nd/4.0/"
-
-## 配置代码高亮
-[markup]
-  [markup.highlight]
-    lineNos = true
-    style = "github"
-
-## 配置网站菜单
+  # DoIt 主题版本
+  version = "0.2.X"
 
 [menu]
-
   [[menu.main]]
-    identifier = "tools"
-    name = "工具"
-    url = "/tools/"
+    identifier = "posts"
+    # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+    pre = ""
+    # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+    post = ""
+    name = "文章"
+    url = "/posts/"
+    # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
+    title = ""
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    pre = ""
+    post = ""
+    name = "标签"
+    url = "/tags/"
+    title = ""
     weight = 2
-
   [[menu.main]]
-    identifier = "archives"
-    name = "归档"
-    url = "/archives/"
+    identifier = "categories"
+    pre = ""
+    post = ""
+    name = "分类"
+    url = "/categories/"
+    title = ""
     weight = 3
 
-  [[menu.main]]
-    identifier = "about"
-    name = "关于"
-    url = "/about/"
-    weight = 4
+# Hugo 解析文档的配置
+[markup]
+  # 语法高亮设置 (https://gohugo.io/content-management/syntax-highlighting)
+  [markup.highlight]
+    # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
+    noClasses = false
