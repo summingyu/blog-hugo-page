@@ -39,7 +39,7 @@ jobs:
         run: hugo --minify
 
       - name: Deploy to coding
-        uses: s0/git-publish-subdir-action@develop
+        uses: s0/git-publish-subdir-action@v2.5.0
         env:
           REPO: ${{ secrets.CODING_REPO }}
           BRANCH: master
