@@ -9,3 +9,8 @@ draft: false
 ```python
 print("Hello, Hugo")
 ```
+
+去露营啦! :tent: 很快就回来.
+
+真开心! :joy:
+
