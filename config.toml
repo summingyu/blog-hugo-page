@@ -462,8 +462,9 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
       enable = true
     [params.page.comment.twikoo]
       enable = true
-      envId = "<TWIKOO_ENVID>"
-      region = "ap-guangzhou"
+      #envId = "<TWIKOO_ENVID>"
+      envId = "env-2gc0s6r03dc38361"
+      region = "ap-shanghai"
       path = ""
       visitor = true
       commentCount = true
