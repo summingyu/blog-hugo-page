@@ -7,31 +7,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  upload_algolia_index:
     runs-on: ubuntu-latest
+    name: Upload Algolia Index
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
-          extended: true
-
-      - name: Build
-        run: |
-            npm install
-            npm run build
-
-      - name: Update Algolia Index
-        env:
-          ALGOLIA_APP_ID: 9RO7ER2GPK
-          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
-          ALGOLIA_INDEX_NAME: 'summinglearn_index'
-          ALGOLIA_INDEX_FILE: './public/index.json'
-        run: |
-          npm run algolia
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: wangchucheng/algolia-uploader@master
+      with:
+        # Such as `Z0U0ACGBN8`
+        app_id: 9RO7ER2GPK
+        # You can store token in your project's 'Setting > Secrets' and reference the name here. Such as ${{ secrets.ALGOLIA_ADMIN_KEY }}
+        admin_key: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+        # The index name. 
+        index_name: 'summinglearn_index'
+        # The index file path relative to repo root.
+        index_file_path: './public/index.json'
 
