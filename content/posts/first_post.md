@@ -1,7 +1,7 @@
 ---
 title: "Hello Hugo"
 date: 2021-10-13T16:09:41+08:00
-authors: [summingyu]
+authors: ["summingyu"]
 description: ""
 
 tags: ["杂谈"]

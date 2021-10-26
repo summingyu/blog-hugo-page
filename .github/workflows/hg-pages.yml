@@ -35,6 +35,9 @@ jobs:
           hugo-version: 'latest'
           extended: true
           
+      - name: replace secrets in config.toml
+        run: sed -i 's/<TWIKOO_ENVID>/${{ secrets.TWIKOO_ENVID }}/g' config.toml
+
       - name: Run Hugo
         run: hugo --minify
 

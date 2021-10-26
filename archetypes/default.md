@@ -1,16 +1,30 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "{{ replace .TranslationBaseName "-" " " | title }}"
+subtitle: ""
 date: {{ .Date }}
 lastmod: {{ .Date }}
-authors: [summingyu]
+draft: true
+authors: ["summingyu"]
 description: ""
 
 tags: []
 categories: []
 series: []
 
+hiddenFromHomePage: false
+hiddenFromSearch: false
+
 featuredImage: ""
 featuredImagePreview: ""
-draft: true
+
+toc:
+  enable: true
+math:
+  enable: false
+lightgallery: false
+license: ""
 ---
 
+<!--more-->
+
+TODO

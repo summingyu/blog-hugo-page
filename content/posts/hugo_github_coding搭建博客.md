@@ -1,12 +1,14 @@
 ---
 title: "使用hugo+github action+coding搭建博客"
 date: 2021-10-26T09:09:38+08:00
-authors: [summingyu]
+authors: ["summingyu"]
 description: ""
 
 tags: ["hugo", "博客"]
-categories: []
+categories: ["文档"]
 series: []
+
+lightgallery: true
 
 featuredImage: ""
 featuredImagePreview: ""
