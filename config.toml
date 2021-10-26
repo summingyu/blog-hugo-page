@@ -463,7 +463,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
     [params.page.comment.twikoo]
       enable = true
       envId = "<TWIKOO_ENVID>"
-      region = ""
+      region = "ap-guangzhou"
       path = ""
       visitor = true
       commentCount = true
