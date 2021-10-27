@@ -39,7 +39,7 @@ jobs:
         env:
           TWIKOO_ENVID: ${{ secrets.TWIKOO_ENVID }}
         run: |
-          sed -i 's/<TWIKOO_ENVID>/$TWIKOO_ENVID/g' config.toml
+          sed -i "s/<TWIKOO_ENVID>/$TWIKOO_ENVID/g" config.toml
           sed -n '/envId/p' config.toml
 
       - name: Run Hugo
