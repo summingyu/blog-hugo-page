@@ -36,7 +36,9 @@ jobs:
           extended: true
           
       - name: replace secrets in config.toml
-        run: sed -i 's/<TWIKOO_ENVID>/${{ secrets.TWIKOO_ENVID }}/g' config.toml
+        run: |
+          sed -i 's/<TWIKOO_ENVID>/${{ secrets.TWIKOO_ENVID }}/g' config.toml
+          sed -n '/envId/p' config.toml
 
       - name: Run Hugo
         run: hugo --minify
