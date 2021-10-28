@@ -1,8 +1,7 @@
 # {{ .Site.Title }}
 
 [![](https://img.shields.io/badge/blog-summinglearn-green)](https://summinglearn.com)
-[![push public file to coding](https://github.com/summingyu/blog-hugo-page/actions/workflows/hg-pages.yml/badge.svg)](https://github.com/summingyu/blog-hugo-page/actions/workflows/hg-pages.yml)
-
+[![](https://github.com/summingyu/blog-hugo-page/actions/workflows/hg-pages.yml/badge.svg)](https://github.com/summingyu/blog-hugo-page/actions/workflows/hg-pages.yml)
 {{ T "archiveCounter" (len .Data.Pages) }}
 
 {{- $posts := .Data.Pages.ByDate.Reverse }}
