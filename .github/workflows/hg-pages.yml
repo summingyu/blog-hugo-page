@@ -48,9 +48,10 @@ jobs:
       - name: copy index.md to README.md
         run: |
           cp -a public/posts/index.md README.md
+          
 
       - name: Push README
-        uses: github-actions-x/commit@v2.8
+        uses: github-actions-x/commit@v2.8kk
         with:
           github-token: ${{ secrets.FLOW_TOKEN }}
           commit-message: "auto(readme): auto commit README.md [skip ci]"
