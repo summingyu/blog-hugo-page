@@ -85,7 +85,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
     pre = "<i class='fab fa-github fa-fw'></i>"
     post = ""
     name = ""
-    url = "https://github.com/summingyu"
+    url = "https://github.com/summingyu/blog-hugo-page.git"
     title = "GitHub"
     weight = 7
 [params]
@@ -94,7 +94,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
   # DoIt 主题版本
   version = "0.2.X"
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
-  gitRepo = "https://github.com/summingyu"
+  gitRepo = "https://github.com/summingyu/blog-hugo-page.git"
   # 哪种哈希函数用来 SRI, 为空时表示不使用 SRI ("sha256", "sha384", "sha512", "md5")
   fingerprint = ""
   # 日期格式
