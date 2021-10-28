@@ -55,6 +55,19 @@ jobs:
           KNOWN_HOSTS_FILE: resources/known_hosts
           MESSAGE: "[Github Action] Update the content to the commit {sha} that had the message: {msg}"
 
+      - name: copy index.md to README.md
+        run: |
+          cp public/posts/index.md README.md
+
+      - name: Push README
+        uses: github-actions-x/commit@v2.6
+        with:
+          github-token: ${{ secrets.FLOW_TOKEN }}
+          commit-message: "auto(readme): auto commit README.md [skip ci]"
+          push-branch: 'main'
+          force-add: 'true'
+          files: README.md
+
       - name: Upload Hugo Algolia Index
         uses: aoudiamoncef/hugo-algolia-uploader@main
         with:

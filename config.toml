@@ -666,7 +666,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   page = ["HTML", "MarkDown"]
-  section = ["HTML", "RSS"]
+  section = ["HTML", "RSS", "MarkDown"]
   taxonomy = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
 
