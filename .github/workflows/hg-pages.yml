@@ -45,20 +45,8 @@ jobs:
       - name: Run Hugo
         run: hugo --minify
 
-      - name: Deploy to coding
-        uses: s0/git-publish-subdir-action@v2.5.0
-        env:
-          REPO: ${{ secrets.CODING_REPO }}
-          BRANCH: master
-          FOLDER: public
-          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          KNOWN_HOSTS_FILE: resources/known_hosts
-          MESSAGE: "[Github Action] Update the content to the commit {sha} that had the message: {msg}"
-
       - name: copy index.md to README.md
         run: |
-          git remote -v &
-          pwd &
           cp -a public/posts/index.md README.md &
           head README.md
 
@@ -70,6 +58,17 @@ jobs:
           push-branch: 'main'
           force-add: 'true'
           files: README.md
+
+      - name: Deploy to coding
+        uses: s0/git-publish-subdir-action@v2.5.0
+        env:
+          REPO: ${{ secrets.CODING_REPO }}
+          BRANCH: master
+          FOLDER: public
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          KNOWN_HOSTS_FILE: resources/known_hosts
+          MESSAGE: "[Github Action] Update the content to the commit {sha} that had the message: {msg}"
+
 
       - name: Upload Hugo Algolia Index
         uses: aoudiamoncef/hugo-algolia-uploader@main
