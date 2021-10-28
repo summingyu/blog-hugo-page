@@ -54,14 +54,14 @@ jobs:
           git config --global user.email "summingbest@gmail.com"
           git config --global user.name "summingyu"
 
-      - name: commit change
+      - name: chack README.md change
         id: check_status
         run: |
           git checkout -B main
           git status README.md|grep README.md
         continue-on-error: true
 
-      - name: push change
+      - name: commit and push change if README.md changed
         env:
           GITHUB_LOGIN: summingyu
           GITHUB_PERSONAL_TOKEN: ${{ secrets.FLOW_TOKEN }}
