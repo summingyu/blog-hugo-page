@@ -58,6 +58,7 @@ jobs:
       - name: copy index.md to README.md
         run: |
           git remote -v &
+          pwd &
           head README.md &
           cp -a public/posts/index.md README.md &
           head README.md
