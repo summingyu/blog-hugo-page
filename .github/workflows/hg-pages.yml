@@ -53,44 +53,50 @@ jobs:
         run: |
           git config --global user.email "summingbest@gmail.com"
           git config --global user.name "summingyu"
+
       - name: commit change
+        id: check_status
         run: |
           git checkout -B main
-          git add -f -A README.md
-          git commit -m "auto(readme): auto commit README.md [skip ci]"
+          git status README.md|grep README.md
+        continue-on-error: true
+
       - name: push change
         env:
           GITHUB_LOGIN: summingyu
           GITHUB_PERSONAL_TOKEN: ${{ secrets.FLOW_TOKEN }}
+        if: steps.check_status.outcome == 'success'
         run: |
+          git add -f -A README.md
+          git commit -m "auto(readme): auto commit README.md [skip ci]"
           git push https://$GITHUB_LOGIN:$GITHUB_PERSONAL_TOKEN@github.com/$GITHUB_REPOSITORY.git
 
 
-      - name: Deploy to coding
-        uses: s0/git-publish-subdir-action@v2.5.0
-        env:
-          REPO: ${{ secrets.CODING_REPO }}
-          BRANCH: master
-          FOLDER: public
-          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          KNOWN_HOSTS_FILE: resources/known_hosts
-          MESSAGE: "[Github Action] Update the content to the commit {sha} that had the message: {msg}"
+      # - name: Deploy to coding
+      #   uses: s0/git-publish-subdir-action@v2.5.0
+      #   env:
+      #     REPO: ${{ secrets.CODING_REPO }}
+      #     BRANCH: master
+      #     FOLDER: public
+      #     SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+      #     KNOWN_HOSTS_FILE: resources/known_hosts
+      #     MESSAGE: "[Github Action] Update the content to the commit {sha} that had the message: {msg}"
 
 
-      - name: Upload Hugo Algolia Index
-        uses: aoudiamoncef/hugo-algolia-uploader@main
-        with:
-          # Such as `LAHZOUZT15`. Required
-          app_id: 9RO7ER2GPK
-          # You can store token in your project's 'Setting > Secrets' and reference the name here. Such as ${{ secrets.ALGOLIA_ADMIN_KEY }} . Required
-          admin_key: ${{ secrets.ALGOLIA_ADMIN_KEY }}
-          # The index name. Required
-          index_name: 'summinglearn_index'
-          # The index name separator. If multi languages is enabled. Default value is`_` 
-          #index_name_separator: <your_index_name_separator>
-          # The index file directory relative to repo root. Default value is `public`
-          #index_file_directory: <your_index_file_directory>
-          # The index file name. Default value is `index.json`
-          #index_file_name: <your_index_file_name>
-          # The indexes i18next language codes comma separated. Ex: en,fr,tzm will upload to 3 indexes with predefined suffix: 'your_index_name + index_name_separator + your_index_language'
-          #index_languages: <your_index_languages>
+      # - name: Upload Hugo Algolia Index
+      #   uses: aoudiamoncef/hugo-algolia-uploader@main
+      #   with:
+      #     # Such as `LAHZOUZT15`. Required
+      #     app_id: 9RO7ER2GPK
+      #     # You can store token in your project's 'Setting > Secrets' and reference the name here. Such as ${{ secrets.ALGOLIA_ADMIN_KEY }} . Required
+      #     admin_key: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+      #     # The index name. Required
+      #     index_name: 'summinglearn_index'
+      #     # The index name separator. If multi languages is enabled. Default value is`_` 
+      #     #index_name_separator: <your_index_name_separator>
+      #     # The index file directory relative to repo root. Default value is `public`
+      #     #index_file_directory: <your_index_file_directory>
+      #     # The index file name. Default value is `index.json`
+      #     #index_file_name: <your_index_file_name>
+      #     # The indexes i18next language codes comma separated. Ex: en,fr,tzm will upload to 3 indexes with predefined suffix: 'your_index_name + index_name_separator + your_index_language'
+      #     #index_languages: <your_index_languages>
