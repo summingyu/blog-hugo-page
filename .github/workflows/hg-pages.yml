@@ -57,7 +57,9 @@ jobs:
 
       - name: copy index.md to README.md
         run: |
-          cp -a public/posts/index.md README.md
+          head public/posts/index.md &
+          cp -a public/posts/index.md README.md &
+          head README.md
 
       - name: Push README
         uses: github-actions-x/commit@v2.6
