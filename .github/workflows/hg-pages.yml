@@ -48,16 +48,23 @@ jobs:
       - name: copy index.md to README.md
         run: |
           cp -a public/posts/index.md README.md
+      
+      - name: config git info
+        run: |
+          git config --global user.email "summingbest@gmail.com"
+          git config --global user.name "summingyu"
+      - name: commit change
+        run: |
+          git checkout -B main
+          git add -f -A README.md
+          git commit -m "auto(readme): auto commit README.md [skip ci]"
+      - name: push change
+        env:
+          GITHUB_LOGIN: summingyu
+          GITHUB_PERSONAL_TOKEN: ${{ secrets.FLOW_TOKEN }}
+        run: |
+          git push https://$GITHUB_LOGIN:$GITHUB_PERSONAL_TOKEN@github.com/$GITHUB_REPOSITORY.git
 
-
-      - name: Push README
-        uses: github-actions-x/commit@v2.8
-        with:
-          github-token: ${{ secrets.FLOW_TOKEN }}
-          commit-message: "auto(readme): auto commit README.md [skip ci]"
-          push-branch: 'main'
-          force-add: 'true'
-          files: 'README.md'
 
       # - name: Deploy to coding
       #   uses: s0/git-publish-subdir-action@v2.5.0
