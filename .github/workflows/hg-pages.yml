@@ -32,9 +32,10 @@ jobs:
       - name: replace secrets in config.toml
         env:
           TWIKOO_ENVID: ${{ secrets.TWIKOO_ENVID }}
+          GOOLE_ANALYTICS_ID: ${{ secrets.GOOLE_ANALYTICS_ID }}
         run: |
           sed -i "s/<TWIKOO_ENVID>/$TWIKOO_ENVID/g" config.toml
-          sed -n '/envId/p' config.toml
+          sed -i "s/<GOOLE_ANALYTICS_ID>/$GOOLE_ANALYTICS_ID/g" config.toml
   
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
