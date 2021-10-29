@@ -509,11 +509,11 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
   # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
   # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
-    google = ""
+    google = "s9EHYw-2iXlYEjBnbd8o_AFTqVC0pTwS9gJiUwN3P4o"
     bing = ""
     yandex = ""
     pinterest = ""
-    baidu = ""
+    baidu = "code-sCQhTh1w2C"
     so = ""
     sogou = ""
 
