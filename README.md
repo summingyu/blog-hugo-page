@@ -6,5 +6,5 @@
 
 
 ## 2021
-- 10-26 [使用hugo+github action+coding搭建博客](content/posts/hugo_github_coding搭建博客.md)
+- 10-26 [本地环境搭建](content/posts/init-local-env/index.md)
 - 10-13 [Hello Hugo](content/posts/first_post.md)
