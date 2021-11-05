@@ -2,7 +2,7 @@
 title: "Hello Hugo"
 date: 2021-10-13T16:09:41+08:00
 authors: ["summingyu"]
-description: ""
+description: "本篇用于测试hugo配置等功能是否正常"
 
 tags: ["杂谈"]
 categories: ["杂谈"]

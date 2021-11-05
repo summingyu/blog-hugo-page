@@ -1,20 +1,24 @@
 ---
-title: "使用hugo+github action+coding搭建博客"
+title: "本地环境搭建"
 date: 2021-10-26T09:09:38+08:00
+lastmod: 2021-11-04T09:09:38+08:00
 authors: ["summingyu"]
-description: ""
+description: "博客构建第一步: 本地环境搭建"
 
-tags: ["hugo", "博客"]
+tags: ["hugo", "博客", "DoIt"]
 categories: ["文档"]
-series: []
+series: ["start-hugo"]
+series_weight: 1
+seriesNavigation: true
 
 lightgallery: true
 
-featuredImage: ""
+featuredImage: "my_hugo_blog.jpg"
 featuredImagePreview: ""
 draft: false
+toc: true
 ---
-
+<!--more-->
 ## 0x00 前言
 
 之前使用hexo+github.io搭建的博客由于各种原因(懒)断掉了,最近听[xuwu](https://xwlearn.com)大佬介绍.
@@ -70,4 +74,31 @@ cd ${path_to_site}
 git init
 
 git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
+# 复制主题的案例站点配置文件到自己的站点
+cp -a themes/DoIt/exampleSite/config.toml config.toml
 ```
+
+### 0o03. 创建第一篇博客
+
+```bash
+hugo new posts/hello_hugo.md
+```
+
+可以发现在content/posts目录里面生成了一个`hello_hugo.md`文档
+> 生成的博客都是基于content目录的
+
+打开编辑并输入
+
+```markdown
+# hello hugo
+```
+
+### 0o04. 本地预览
+
+```bash
+hugo server -D
+```
+
+> -D 参数表示的是允许渲染draft为true的博客
+
+执行完后,就可以用浏览器访问 `http://localhost:1313`进行预览
