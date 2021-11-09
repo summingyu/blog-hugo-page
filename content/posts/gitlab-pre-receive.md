@@ -26,7 +26,6 @@ license: ""
 
 <!--more-->
 
-
 ## 背景
 
 由于公司使用了`flyway`来进行mysql语句的版本管理,但是flyway对提交的目录格式存在格式的限定.
@@ -35,17 +34,18 @@ license: ""
 
 ## 单个项目配置
 
-1. 在gitlab服务器上的项目仓库新建目录
+### 1. 在gitlab服务器上的项目仓库新建目录
 
 ```bash
 cd /var/opt/gitlab/git-data/repositories/SOME_USER/SOME_REPO.git
 mkdir -p custom_hooks/pre-receive.d/
 ```
 
-2. 上传`flyway-format-check.sh`脚本
+### 2. 上传`flyway-format-check.sh`脚本
 
 将脚本放置到新建目录
 `/var/opt/gitlab/git-data/repositories/SOME_USER/SOME_REPO.git/custom_hooks/pre-receive.d`内
+
 ```bash
 cat flyway-format-check.sh < EOF
 #!/usr/bin/env bash
@@ -112,7 +112,7 @@ exit 0
 EOF
 ```
 
-3. 修改权限
+### 3. 修改权限
 
 ```shell
 cd /var/opt/gitlab/git-data/repositories/SOME_REPO/SOME_REPO.git
@@ -120,7 +120,7 @@ chown -R git custom_hooks/
 chmod +x custom_hooks/pre-receive.d/flyway-format-check.sh
 ```
 
-# gitlab全局设置pre-receive
+## gitlab全局设置pre-receive
 
 在全局配置文件`/etc/gitlab/gitlab.rb`配置文件中修改或者查找配置
 
