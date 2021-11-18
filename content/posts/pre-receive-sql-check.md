@@ -3,7 +3,7 @@ title: "利用pre-receive进行sql检查"
 subtitle: ""
 date: 2021-11-16T15:56:46+08:00
 lastmod: 2021-11-16T15:56:46+08:00
-draft: true
+draft: false
 authors: ["summingyu"]
 description: "利用pre-receive进行sql语句检查,禁止不合规语句的提交"
 
@@ -84,7 +84,9 @@ COLOR_END='\033[0m'
             echo -e "ERROR TYPE: find procedure: ${RED} ${sql_content} ${COLOR_END}"
         fi
         # 检查建表语句是否存在主键
-        sql_content=`git show ${newrev}:${FILE}|grep -vP '^\-\- '|grep -ioaznP 'create table(?![^;]*PRIMARY KEY)[^;]+;'`
+        # 由于注释中存在';',导致存在匹配不正常,去除建表语句后面注释
+        no_comment_sql_content=`git show ${newrev}:${FILE}|grep -vP '^\-\- '|sed 's/COMMENT.*,$/COMMENT,/g'`
+        sql_content=`echo ${no_comment_sql_content}|grep -vP '^\-\- '|grep -ioaznP 'create table(?![^;]*PRIMARY KEY)[^;]+;'`
         if [ -n "$sql_content" ];then
             has_errors+=1
             echo -e "error file: ${RED} ${FILE} ${COLOR_END}"
