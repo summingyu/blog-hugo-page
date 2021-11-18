@@ -6,6 +6,7 @@
 
 
 ## 2021
+- 11-16 [利用pre-receive进行sql检查](content/posts/pre-receive-sql-check.md)
 - 11-09 [给gitlab仓库添加pre-receive限制提交](content/posts/gitlab-pre-receive.md)
 - 10-26 [本地环境搭建](content/posts/init-local-env/index.md)
 - 10-13 [Hello Hugo](content/posts/first_post.md)
