@@ -29,7 +29,7 @@ license: ""
 
 ## 背景
 
-上一章 {{<link "gitlab-pre-receive" "给gitlab仓库添加pre-receive限制提交">}} 利用pre-receive校验flyway目录格式的功能反响不错,公司提出更近一步需求,能否对提交的sql进行语句检查,阻止一些不规范的语句提交比如
+上一章 `{{<link "gitlab-pre-receive" "给gitlab仓库添加pre-receive限制提交">}}` 利用pre-receive校验flyway目录格式的功能反响不错,公司提出更近一步需求,能否对提交的sql进行语句检查,阻止一些不规范的语句提交比如
 
 1. 存在存储过程的关键字`create procedure`
 2. `create table` 语句内没有`PRIMARY KEY`
@@ -37,8 +37,6 @@ license: ""
 4. 存在使用`SET @variable = value` 语句
 
 > 还是利用上一章的flyway-format-check.sh的脚本,在这上面进行优化
-
-
 
 ## 主体逻辑
 
